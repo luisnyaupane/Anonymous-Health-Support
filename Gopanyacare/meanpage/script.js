@@ -1,9 +1,15 @@
-function chooseMode(mode) {
-  if (mode === 'anonymous') {
-    window.location.href = 'safePopUP/safepopup.html';
-  } else if (mode === 'identified') {
-    window.location.href = 'loginpage/identyLogin.html';
-  }
+// function chooseMode(mode) {
+//   if (mode === 'anonymous') {
+//     window.location.href = 'safePopUP/safepopup.html';
+//   } else if (mode === 'identified') {
+//     window.location.href = 'loginpage/identyLogin.html';
+//   }
+// }
+function goToSafepopupPage() {
+  window.location.href = "./safePopUP/safepopup.html";
+}
+function goTidentyLoginPage() {
+  window.location.href = "./loginpage/identyLogin.html";
 }
 
 let showingFirst = true;
