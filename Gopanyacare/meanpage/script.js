@@ -8,7 +8,7 @@
 function goToSafepopupPage() {
   window.location.href = "./safePopUp/safepopup.html";
 }
-function goTidentyLoginPage() {
+function goToidentyLoginPage() {
   window.location.href = "./loginpage/identyLogin.html";
 }
 
