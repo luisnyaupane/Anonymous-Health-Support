@@ -6,7 +6,7 @@
 //   }
 // }
 function goToSafepopupPage() {
-  window.location.href = "./safePopUP/safepopup.html";
+  window.location.href = "./safePopUp/safepopup.html";
 }
 function goTidentyLoginPage() {
   window.location.href = "./loginpage/identyLogin.html";
