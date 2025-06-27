@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anonymous Health Portal</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts - Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- External CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="home.css" />
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4">
+  <div class="container bg-gray-800 rounded-2xl shadow-2xl p-8 sm:p-12 md:p-16">
+    <h1 class="text-4xl sm:text-5xl font-extrabold mb-6 text-teal-400 leading-tight">
+      Safe & Anonymous Health Support
+    </h1>
+    <p class="text-gray-300 text-lg sm:text-xl mb-12 max-w-2xl mx-auto">
+      Your privacy is our priority. Explore resources and find support for your well-being, confidentially and without judgment.
+    </p>
+
+    <div  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+      <!-- Mental Health Card -->
+      <div onclick="goToMentalPage()" class="card">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon h-16 w-16" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M18 8a6 6 0 01-7.742 5.742A10.5 10.5 0 011.945 2.945.5.5 0 001.07 2.07L2 2.999l.47.47a.5.5 0 00.5.5H5a2 2 0 012 2v2a2 2 0 01-2 2H5.5L7 11.5V14h1.5a.5.5 0 00.5-.5V12a.5.5 0 01.5-.5H11a.5.5 0 01.5.5v1.5a.5.5 0 00.5.5H14v-2.5L15 11.5V9a2 2 0 012-2h.5a.5.5 0 00.5-.5z" clip-rule="evenodd" />
+        </svg>
+        <h2 class="text-2xl font-bold mb-3 text-white">Mental Health</h2>
+        <p class="text-gray-400 text-sm mb-4">
+          Access resources for stress, anxiety, depression, and overall mental well-being.
+        </p>
+        <a href="#mental-health" class="card-button">Learn More</a>
+      </div>
+
+      <!-- Reproductive Health Card -->
+      <div onclick="goToReproductivePage()" class="block rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon h-16 w-16" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 011-1h4a1 1 0 110 2H8a1 1 0 01-1-1z" clip-rule="evenodd" />
+    </svg>
+    <h2 class="text-2xl font-bold mb-3 text-white">Reproductive Health</h2>
+    <p class="text-gray-400 text-sm mb-4">
+      Information and resources on sexual health, family planning, and reproductive well-being.
+    </p>
+    <div class="card-button">Explore Options</div>
+  </div>
+</div>
+
+
+      <!-- ASAP Help Card -->
+      <div class="card" onclick="goToAsapPage()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon h-16 w-16" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 102 0V8a1 1 0 00-.445-.832l-2-1z" clip-rule="evenodd" />
+        </svg>
+        <h2 class="text-2xl font-bold mb-3 text-white" >ASAP Help</h2>
+        <p class="text-gray-400 text-sm mb-4">
+          Immediate assistance for abuse, emergencies, or urgent safety concerns.
+        </p>
+        <a href="#asap-help" class="card-button bg-red-600 hover:bg-red-700">Get Urgent Help</a>
+      </div>
+
+      <!-- Rehabilitation Card -->
+      <div class="card" onclick="goToRehabilitationPage()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon h-16 w-16" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v2.055a11.16 11.16 0 014.288 2.373 1 1 0 01.129 1.414l-.995.995a1 1 0 01-1.414-.129A9.16 9.16 0 0013 6.055V11a1 1 0 01-1 1H9a1 1 0 01-1-1V5.5l-2-.5A1.5 1.5 0 004 6.5v4.5A1.5 1.5 0 005.5 12h.042L2 14.591V18a2 2 0 002 2h12a2 2 0 002-2v-2.409l-3.542-2.582.042-.056C16.89 10.375 18 8.212 18 6a8 8 0 00-6.7-7.954z" clip-rule="evenodd" />
+        </svg>
+        <h2 class="text-2xl font-bold mb-3 text-white">Rehabilitation</h2>
+        <p class="text-gray-400 text-sm mb-4">
+          Support and pathways for overcoming addiction and recovery.
+        </p>
+        <a href="#rehabilitation" class="card-button">Find Programs</a>
+      </div>
+    </div>
+
+    <!-- Info Section -->
+    <section class="mt-16 bg-gray-700 rounded-xl p-8 shadow-xl">
+      <h2 class="text-3xl font-bold mb-6 text-teal-300">Information & Education</h2>
+      <p class="text-gray-300 text-lg leading-relaxed mb-6">
+        Expand your knowledge with our comprehensive educational resources.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+        <div>
+          <h4 class="text-xl font-semibold mb-2 text-white">Wellness & Prevention</h4>
+          <ul class="list-disc list-inside text-gray-400 space-y-1">
+            <li>Nutrition & Diet Guidelines</li>
+            <li>Fitness & Exercise Routines</li>
+            <li>Stress Management Techniques</li>
+            <li>Preventative Care Checklists</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xl font-semibold mb-2 text-white">Understanding Conditions</h4>
+          <ul class="list-disc list-inside text-gray-400 space-y-1">
+            <li>Common Illnesses Explained</li>
+            <li>Chronic Disease Management</li>
+            <li>Mental Health Conditions Overview</li>
+            <li>Early Warning Signs</li>
+          </ul>
+        </div>
+      </div>
+      <a href="#information-sector" class="card-button mt-8">Explore All Topics</a>
+    </section>
+
+    <footer class="mt-16 text-gray-500 text-sm">
+      &copy; <span id="current-year"></span> Anonymous Health Portal. All rights reserved.
+    </footer>
+  </div>
+<!-- ChatBot icon with label -->
+<!-- Font Awesome ChatBot Button -->
+<button class="chatbot-btn" onclick=" goToChatbotPage()">
+  <i class="fas fa-comment-dots"></i> AI ChatBot
+</button>
+
+</div>
+
+  <script src="home.js"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Doctor Consultation</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 2rem;
+      margin: 0;
+    }
+
+    h1, h2 {
+      color: #81c784;
+      text-align: center;
+    }
+
+    .doctor-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .card {
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      padding: 1.2rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    }
+
+    .card h3 {
+      color: #aed581;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    .center {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    button {
+      background-color: #388e3c;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #2e7d32;
+    }
+
+    .questionnaire {
+      background-color: #1e1e1e;
+      padding: 1.5rem;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 2rem auto;
+      display: none;
+    }
+
+    label, select, textarea {
+      display: block;
+      width: 100%;
+      margin: 1rem 0;
+    }
+
+    select, textarea {
+      padding: 0.6rem;
+      background-color: #2a2a2a;
+      color: white;
+      border: none;
+      border-radius: 6px;
+    }
+
+    .result {
+      margin-top: 1.5rem;
+      font-weight: bold;
+      color: #ffeb3b;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🩺 Doctor Consultation</h1>
+  <p style="text-align:center;">Browse specialist types or get help choosing the right one anonymously.</p>
+
+  <div class="doctor-list">
+    <div class="card">
+      <h3>👩‍⚕️ Gynecologist (OB-GYN)</h3>
+      <p>Women's reproductive health: periods, pregnancy, PCOS, menopause, birth control.</p>
+    </div>
+    <div class="card">
+      <h3>👨‍⚕️ Andrologist</h3>
+      <p>Male fertility, low sperm count, erectile dysfunction, hormone imbalances.</p>
+    </div>
+    <div class="card">
+      <h3>🧠 Psychiatrist/Psychologist</h3>
+      <p>Mental health issues related to reproduction: anxiety, depression, sexual trauma.</p>
+    </div>
+    <div class="card">
+      <h3>🧬 Reproductive Endocrinologist</h3>
+      <p>Infertility, IVF, hormone disorders in both men and women.</p>
+    </div>
+    <div class="card">
+      <h3>🚻 Urologist</h3>
+      <p>Male urinary issues, prostate, erectile problems, infections.</p>
+    </div>
+    <div class="card">
+      <h3>⚖️ Sexual Health / Sexologist</h3>
+      <p>Sexual dysfunction, pain during intercourse, intimacy problems.</p>
+    </div>
+  </div>
+
+  <div class="center">
+    <button onclick="showQuestionnaire()">🧭 Help me identify the doctor I need</button>
+  </div>
+
+  <div class="questionnaire" id="quiz">
+    <h2>Doctor Matching Questionnaire</h2>
+
+    <label for="gender">1. What is your biological sex?</label>
+    <select id="gender">
+      <option value="">-- Select --</option>
+      <option value="female">Female</option>
+      <option value="male">Male</option>
+      <option value="other">Other / Prefer not to say</option>
+    </select>
+
+    <label for="symptoms">2. What issue are you mainly concerned about?</label>
+    <select id="symptoms">
+      <option value="">-- Select --</option>
+      <option value="period">Irregular period, PCOS, pain</option>
+      <option value="pregnancy">Pregnancy or contraception</option>
+      <option value="fertility">Fertility / Trying to conceive</option>
+      <option value="mental">Stress, depression, trauma</option>
+      <option value="erectile">Erectile dysfunction or low libido</option>
+      <option value="uti">Urinary or genital infection</option>
+      <option value="dont_know">I’m not sure</option>
+    </select>
+
+    <button onclick="suggestDoctor()">Find My Doctor</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function showQuestionnaire() {
+      document.getElementById('quiz').style.display = 'block';
+    }
+
+    function suggestDoctor() {
+      const gender = document.getElementById('gender').value;
+      const symptoms = document.getElementById('symptoms').value;
+      let suggestion = '';
+
+      if (gender === '' || symptoms === '') {
+        suggestion = '❗ Please select both options to proceed.';
+      } else {
+        // Match logic
+        if (symptoms === 'period' || symptoms === 'pregnancy') {
+          suggestion = '👉 You should consult a **Gynecologist (OB-GYN)**.';
+        } else if (symptoms === 'fertility') {
+          suggestion = '👉 You may need a **Reproductive Endocrinologist**.';
+        } else if (symptoms === 'erectile' && gender === 'male') {
+          suggestion = '👉 You should consult an **Andrologist or Urologist**.';
+        } else if (symptoms === 'mental') {
+          suggestion = '👉 You should consult a **Psychologist or Psychiatrist**.';
+        } else if (symptoms === 'uti') {
+          suggestion = '👉 You should consult a **Urologist**.';
+        } else {
+          suggestion = '👉 Based on your input, a **Sexual Health Specialist** or **General Physician** may be helpful. You can also consult a Gynecologist or Andrologist depending on your gender.';
+        }
+      }
+
+      document.getElementById('result').innerHTML = suggestion;
+    }
+  </script>
+
+</body>
+</html>

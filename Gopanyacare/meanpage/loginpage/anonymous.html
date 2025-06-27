@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anonymous Consultation</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f1f5f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 2rem;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 460px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.25);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: #4ade80;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .option {
+      font-size: 1.3rem;
+      margin: 1rem 0;
+      background-color: #334155;
+      padding: 1rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .option input {
+      margin-right: 1rem;
+      transform: scale(1.4);
+    }
+
+    .section {
+      margin-top: 1.5rem;
+      display: none;
+    }
+
+    input[type="text"] {
+      font-size: 1.1rem;
+      padding: 0.8rem;
+      width: 100%;
+      border-radius: 8px;
+      border: none;
+      margin-top: 0.8rem;
+    }
+
+    button {
+      background: #4ade80;
+      color: #1e293b;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      padding: 1rem;
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    button:hover {
+      background: #22c55e;
+    }
+
+    .message {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      background: #4ade80;
+      color: #1e293b;
+      padding: 1rem;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .error {
+      background-color: #ef4444 !important;
+      color: white !important;
+    }
+
+    .back-btn {
+      margin-top: 2rem;
+      background-color: #64748b;
+    }
+
+    #goNextBtn {
+      background-color: #38bdf8;
+    }
+
+    #goNextBtn:hover {
+      background-color: #0ea5e9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Anonymous Consultation</h1>
+
+    <label class="option">
+      <input type="radio" name="userType" value="new" />
+      Are you new ?
+    </label>
+
+    <label class="option">
+      <input type="radio" name="userType" value="existing" />
+      Already account ?
+    </label>
+
+    <!-- New user section -->
+    <div id="newUserSection" class="section">
+      <button id="generateIdBtn">Generate My ID</button>
+      <div id="generatedId" class="message"></div>
+      <button id="goNextBtn" style="display:none;">➡ Go to Next</button>
+    </div>
+
+    <!-- Existing user section -->
+    <div id="existingUserSection" class="section">
+      <label for="userIdInput">Enter your ID:</label>
+      <input type="text" id="userIdInput" placeholder="e.g. ANON-123456" />
+      <button id="loginBtn">Login</button>
+      <div id="loginMsg" class="message"></div>
+    </div>
+
+    <!-- Back to home -->
+    <button class="back-btn" onclick="goBack()">⬅ Back to Main Page</button>
+  </div>
+
+  <script>
+    const radios = document.querySelectorAll('input[name="userType"]');
+    const newUserSection = document.getElementById("newUserSection");
+    const existingUserSection = document.getElementById("existingUserSection");
+    const generateIdBtn = document.getElementById("generateIdBtn");
+    const generatedId = document.getElementById("generatedId");
+    const loginBtn = document.getElementById("loginBtn");
+    const loginMsg = document.getElementById("loginMsg");
+    const userIdInput = document.getElementById("userIdInput");
+    const goNextBtn = document.getElementById("goNextBtn");
+
+    // Switch between new/existing sections
+    radios.forEach(radio => {
+      radio.addEventListener("change", () => {
+        generatedId.style.display = "none";
+        loginMsg.style.display = "none";
+        goNextBtn.style.display = "none";
+        if (radio.value === "new") {
+          newUserSection.style.display = "block";
+          existingUserSection.style.display = "none";
+        } else {
+          newUserSection.style.display = "none";
+          existingUserSection.style.display = "block";
+        }
+      });
+    });
+
+    // Generate anonymous ID
+    generateIdBtn.addEventListener("click", () => {
+      const numericId = "ANON-" + Math.floor(100000 + Math.random() * 900000);
+      generatedId.textContent = `Your ID is: ${numericId} (Save it!)`;
+      generatedId.classList.remove("error");
+      generatedId.style.display = "block";
+      goNextBtn.style.display = "block";
+    });
+
+    // Go to next page
+    goNextBtn.addEventListener("click", () => {
+     window.location.href = "../drList/mentalhealth.html";
+
+    });
+
+    // Login existing ID
+    loginBtn.addEventListener("click", () => {
+      const input = userIdInput.value.trim();
+      if (input === "") {
+        loginMsg.textContent = "Please enter your ID.";
+        loginMsg.classList.add("error");
+      } else {
+        loginMsg.textContent = `Welcome back! Logged in with: ${input}`;
+        loginMsg.classList.remove("error");
+      }
+      loginMsg.style.display = "block";
+      loginMsg.scrollIntoView({ behavior: "smooth" });
+    });
+
+    function goBack() {
+      window.location.href = "../main page/index.html";
+    }
+  </script>
+
+</body>
+</html>

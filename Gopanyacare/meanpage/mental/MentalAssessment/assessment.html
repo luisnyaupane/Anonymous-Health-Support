@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mental Health Self-Assessment</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1, h2 {
+      color: #81c784;
+    }
+    .question {
+      margin-bottom: 1.5rem;
+    }
+    .question p {
+      font-weight: bold;
+    }
+    .question label {
+      display: block;
+      margin: 0.5rem 0;
+      cursor: pointer;
+    }
+    button {
+      background-color: #81c784;
+      color: #121212;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 2rem;
+    }
+    .result {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #1e1e1e;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mental Health Self-Assessment</h1>
+  <div id="part1">
+    <h2>Part 1: Identify What You're Experiencing</h2>
+    <form id="quiz1">
+      <div class="question">
+        <p>1. How often have you been feeling low or sad in the past 2 weeks?</p>
+        <label><input type="radio" name="q1" value="0"> Not at all</label>
+        <label><input type="radio" name="q1" value="1"> A few days</label>
+        <label><input type="radio" name="q1" value="2"> Most days</label>
+        <label><input type="radio" name="q1" value="3"> Every day</label>
+      </div>
+      <div class="question">
+        <p>2. Do you often worry even when there's no clear reason?</p>
+        <label><input type="radio" name="q2" value="0"> Never</label>
+        <label><input type="radio" name="q2" value="1"> Sometimes</label>
+        <label><input type="radio" name="q2" value="2"> Often</label>
+        <label><input type="radio" name="q2" value="3"> Constantly</label>
+      </div>
+      <div class="question">
+        <p>3. Do you have trouble sleeping?</p>
+        <label><input type="radio" name="q3" value="0"> No</label>
+        <label><input type="radio" name="q3" value="1"> Occasionally</label>
+        <label><input type="radio" name="q3" value="2"> Often</label>
+      </div>
+      <div class="question">
+        <p>4. Do you feel worthless or blame yourself a lot?</p>
+        <label><input type="radio" name="q4" value="0"> Not at all</label>
+        <label><input type="radio" name="q4" value="1"> Sometimes</label>
+        <label><input type="radio" name="q4" value="2"> All the time</label>
+      </div>
+      <div class="question">
+        <p>5. Do you get panic feelings — fast heart rate, sweating, short breath?</p>
+        <label><input type="radio" name="q5" value="0"> No</label>
+        <label><input type="radio" name="q5" value="1"> Occasionally</label>
+        <label><input type="radio" name="q5" value="2"> Frequently</label>
+      </div>
+      <div class="question">
+        <p>6. Do you get flashbacks or avoid things that remind you of trauma?</p>
+        <label><input type="radio" name="q6" value="0"> No</label>
+        <label><input type="radio" name="q6" value="1"> Sometimes</label>
+        <label><input type="radio" name="q6" value="2"> Often</label>
+      </div>
+      <div class="question">
+        <p>7. Do you repeat actions or have unwanted thoughts that won’t go away?</p>
+        <label><input type="radio" name="q7" value="0"> No</label>
+        <label><input type="radio" name="q7" value="1"> Occasionally</label>
+        <label><input type="radio" name="q7" value="2"> Frequently</label>
+      </div>
+      <button type="button" onclick="showResults()">Get Results</button>
+    </form>
+    <div id="result" class="result" style="display:none"></div>
+  </div>
+
+  <script>
+    function showResults() {
+      const quiz = document.forms["quiz1"];
+      let depression = 0, anxiety = 0, trauma = 0, ocd = 0;
+      depression += parseInt(quiz.q1.value || 0);
+      anxiety += parseInt(quiz.q2.value || 0);
+      depression += parseInt(quiz.q4.value || 0);
+      anxiety += parseInt(quiz.q3.value || 0);
+      anxiety += parseInt(quiz.q5.value || 0);
+      trauma += parseInt(quiz.q6.value || 0);
+      ocd += parseInt(quiz.q7.value || 0);
+
+      let resultText = "<h2>🧠 You may be experiencing:</h2><ul>";
+      if (depression >= 3) resultText += "<li><strong>Depression</strong></li>";
+      if (anxiety >= 3) resultText += "<li><strong>Anxiety</strong></li>";
+      if (trauma >= 2) resultText += "<li><strong>PTSD/Trauma</strong></li>";
+      if (ocd >= 2) resultText += "<li><strong>Obsessive Thoughts (OCD)</strong></li>";
+      if (depression < 3 && anxiety < 3 && trauma < 2 && ocd < 2) resultText += "<li><strong>No strong sign of mental disorder</strong>, but you may still benefit from wellness resources.</li>";
+      resultText += "</ul><p>➡️ Want to assess how severe this is and get personalized suggestions?</p>";
+      resultText += "<button onclick=\"window.location.href='Serinitycheck.html'\">Check Severity Level</button>";
+      document.getElementById("result").innerHTML = resultText;
+      document.getElementById("result").style.display = "block";
+    }
+  </script>
+</body>
+</html>
+

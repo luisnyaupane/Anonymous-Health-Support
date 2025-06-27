@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Health Chatbot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chatbot.css" />
+</head>
+<body>
+  <!-- Back Button -->
+  <a href="../homepage/home.html" class="back-button" onclick="goToHomePage()">← Back</a>
+
+  <div class="chat-container">
+    <div class="chat-header">🤖 Health Chatbot</div>
+    <div class="chat-messages" id="chatMessages">
+      <!-- Messages will appear here -->
+    </div>
+    <div class="chat-input-area">
+      <input type="text" id="chatInput" class="chat-input" placeholder="Ask your health question..." />
+      <button id="sendButton" class="send-button">Send</button>
+    </div>
+  </div>
+
+  <script type="module" src="chatbot.js"></script>
+</body>
+</html>

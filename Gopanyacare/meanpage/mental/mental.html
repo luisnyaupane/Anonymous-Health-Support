@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mental Health Self-Assessment</title>
+  <link rel="stylesheet" href="mental.css" />
+</head>
+<body>
+  <h1>Mental Health Support</h1>
+  <p>Select a category to explore resources and tools for your mental well-being.</p>
+  <div class="card-container" id="card-container">
+    <div class="card" onclick="goToMedicalhelpPage()">
+      <h2>🩺 Medical Help</h2>
+      <p>Access psychiatrists, clinical psychologists, counselors, and therapists near you.</p>
+    </div>
+   <div onclick="goToAssessmentPage()" class="card">
+  <h2>🧠 Self-Assessment</h2>
+  <p>Take guided assessments to identify your condition and check its severity.</p>
+</div>
+
+
+    <div  onclick="goToHelplinePage()" class="card" >
+      <h2>📞 Helpline</h2>
+      <p>Get immediate support for suicidal thoughts, crisis, or intrusive thinking (Nepal-specific).</p>
+    </div>
+    <div class="card" data-target="community.html">
+      <h2>🌐 Community Wall</h2>
+      <p>Share your story anonymously, read experiences, and support each other.</p>
+    </div>
+    <div class="card card4" data-target="wellbeing.html">
+      <h2>🌱 Well-being Hub</h2>
+      <p>Explore tips, guided meditation, stress management, and uplifting resources.</p>
+    </div>
+    <!-- <div class="card card5" data-target="wellbeing.html"></div> -->
+  </div>
+
+  <script src="mental.js"></script>
+</body>
+</html>

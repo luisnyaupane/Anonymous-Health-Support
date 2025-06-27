@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Check Your Serenity Level</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #f0f0f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+    }
+    h1, h2 {
+      color: #81c784;
+    }
+    .question {
+      margin-bottom: 1.2rem;
+    }
+    .question p {
+      font-weight: bold;
+    }
+    label {
+      display: block;
+      margin: 0.4rem 0;
+      cursor: pointer;
+    }
+    button {
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #81c784;
+      border: none;
+      border-radius: 8px;
+      color: #121212;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 2rem;
+      background-color: #1e1e1e;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Check Your Serenity Level</h1>
+
+  <p>Select the condition you'd like to assess severity for:</p>
+  <select id="disorder-select" onchange="showQuestionnaire()">
+    <option value="">-- Select Disorder --</option>
+    <option value="depression">Depression</option>
+    <option value="anxiety">Anxiety</option>
+    <option value="ptsd">PTSD / Trauma</option>
+    <option value="ocd">Obsessive-Compulsive Disorder (OCD)</option>
+  </select>
+
+  <form id="severity-form" class="hidden">
+    <!-- Depression Questions -->
+    <div class="questionnaire" id="depression-questions" style="display:none;">
+      <h2>Depression Severity Questionnaire</h2>
+      <div class="question">
+        <p>1. Little interest or pleasure in doing things?</p>
+        <label><input type="radio" name="d1" value="0" required> Not at all</label>
+        <label><input type="radio" name="d1" value="1"> Several days</label>
+        <label><input type="radio" name="d1" value="2"> More than half the days</label>
+        <label><input type="radio" name="d1" value="3"> Nearly every day</label>
+      </div>
+      <div class="question">
+        <p>2. Feeling down, depressed, or hopeless?</p>
+        <label><input type="radio" name="d2" value="0" required> Not at all</label>
+        <label><input type="radio" name="d2" value="1"> Several days</label>
+        <label><input type="radio" name="d2" value="2"> More than half the days</label>
+        <label><input type="radio" name="d2" value="3"> Nearly every day</label>
+      </div>
+      <div class="question">
+        <p>3. Trouble falling or staying asleep, or sleeping too much?</p>
+        <label><input type="radio" name="d3" value="0" required> Not at all</label>
+        <label><input type="radio" name="d3" value="1"> Several days</label>
+        <label><input type="radio" name="d3" value="2"> More than half the days</label>
+        <label><input type="radio" name="d3" value="3"> Nearly every day</label>
+      </div>
+      <div class="question">
+        <p>4. Feeling tired or having little energy?</p>
+        <label><input type="radio" name="d4" value="0" required> Not at all</label>
+        <label><input type="radio" name="d4" value="1"> Several days</label>
+        <label><input type="radio" name="d4" value="2"> More than half the days</label>
+        <label><input type="radio" name="d4" value="3"> Nearly every day</label>
+      </div>
+      <div class="question">
+        <p>5. Poor appetite or overeating?</p>
+        <label><input type="radio" name="d5" value="0" required> Not at all</label>
+        <label><input type="radio" name="d5" value="1"> Several days</label>
+        <label><input type="radio" name="d5" value="2"> More than half the days</label>
+        <label><input type="radio" name="d5" value="3"> Nearly every day</label>
+      </div>
+      <div class="question">
+        <p>6. Feeling bad about yourself — or that you are a failure or have let yourself or your family down?</p>
+        <label><input type="radio" name="d6" value="0" required> Not at all</label>
+        <label><input type="radio" name="d6" value="1"> Several days</label>
+        <label><input type="radio" name="d6" value="2"> More than half the days</label>
+        <label><input type="radio" name="d6" value="3"> Nearly every day</label>
+      </div>
+      <div class="question">
+        <p>7. Trouble concentrating on things, such as reading the newspaper or watching TV?</p>
+        <label><input type="radio" name="d7" value="0" required> Not at all</label>
+        <label><input type="radio" name="d7" value="1"> Several days</label>
+        <label><input type="radio" name="d7" value="2"> More than half the days</label>
+        <label><input type="radio" name="d7" value="3"> Nearly every day</label>
+      </div>
+      <div class="question">
+        <p>8. Moving or speaking so slowly that other people could have noticed? Or the opposite — being so fidgety or restless that you have been moving around a lot more than usual?</p>
+        <label><input type="radio" name="d8" value="0" required> Not at all</label>
+        <label><input type="radio" name="d8" value="1"> Several days</label>
+        <label><input type="radio" name="d8" value="2"> More than half the days</label>
+        <label><input type="radio" name="d8" value="3"> Nearly every day</label>
+      </div>
+      <div class="question">
+        <p>9. Thoughts that you would be better off dead or hurting yourself in some way?</p>
+        <label><input type="radio" name="d9" value="0" required> Not at all</label>
+        <label><input type="radio" name="d9" value="1"> Several days</label>
+        <label><input type="radio" name="d9" value="2"> More than half the days</label>
+        <label><input type="radio" name="d9" value="3"> Nearly every day</label>
+      </div>
+    </div>
+
+    <!-- Anxiety Questions -->
+    <div class="questionnaire" id="anxiety-questions" style="display:none;">
+      <h2>Anxiety Severity Questionnaire</h2>
+      <div class="question">
+        <p>1. Feeling nervous, anxious, or on edge?</p>
+        <label><input type="radio" name="a1" value="0" required> Not at all</label>
+        <label><input type="radio" name="a1" value="1"> Several days</label>
+        <label><input type="radio" name="a1" value="2"> More than half the days</label>
+        <label><input type="radio" name="a1" value="3"> Nearly every day</label>
+      </div>
+      <div class="question">
+        <p>2. Not being able to stop or control worrying?</p>
+        <label><input type="radio" name="a2" value="0" required> Not at all</label>
+        <label><input type="radio" name="a2" value="1"> Several days</label>
+        <label><input type="radio" name="a2" value="2"> More than half the days</label>
+        <label><input type="radio" name="a2" value="3"> Nearly every day</label>
+      </div>
+      <div class="question">
+        <p>3. Worrying too much about different things?</p>
+        <label><input type="radio" name="a3" value="0" required> Not at all</label>
+        <label><input type="radio" name="a3" value="1"> Several days</label>
+        <label><input type="radio" name="a3" value="2"> More than half the days</label>
+        <label><input type="radio" name="a3" value="3"> Nearly every day</label>
+      </div>
+      <div class="question">
+        <p>4. Trouble relaxing?</p>
+        <label><input type="radio" name="a4" value="0" required> Not at all</label>
+        <label><input type="radio" name="a4" value="1"> Several days</label>
+        <label><input type="radio" name="a4" value="2"> More than half the days</label>
+        <label><input type="radio" name="a4" value="3"> Nearly every day</label>
+      </div>
+      <div class="question">
+        <p>5. Being so restless that it’s hard to sit still?</p>
+        <label><input type="radio" name="a5" value="0" required> Not at all</label>
+        <label><input type="radio" name="a5" value="1"> Several days</label>
+        <label><input type="radio" name="a5" value="2"> More than half the days</label>
+        <label><input type="radio" name="a5" value="3"> Nearly every day</label>
+      </div>
+      <div class="question">
+        <p>6. Becoming easily annoyed or irritable?</p>
+        <label><input type="radio" name="a6" value="0" required> Not at all</label>
+        <label><input type="radio" name="a6" value="1"> Several days</label>
+        <label><input type="radio" name="a6" value="2"> More than half the days</label>
+        <label><input type="radio" name="a6" value="3"> Nearly every day</label>
+      </div>
+      <div class="question">
+        <p>7. Feeling afraid as if something awful might happen?</p>
+        <label><input type="radio" name="a7" value="0" required> Not at all</label>
+        <label><input type="radio" name="a7" value="1"> Several days</label>
+        <label><input type="radio" name="a7" value="2"> More than half the days</label>
+        <label><input type="radio" name="a7" value="3"> Nearly every day</label>
+      </div>
+    </div>
+
+    <!-- PTSD Questions -->
+    <div class="questionnaire" id="ptsd-questions" style="display:none;">
+      <h2>PTSD / Trauma Severity Questionnaire</h2>
+      <div class="question">
+        <p>1. Do you have unwanted memories or flashbacks of a traumatic event?</p>
+        <label><input type="radio" name="p1" value="0" required> Not at all</label>
+        <label><input type="radio" name="p1" value="1"> Several days</label>
+        <label><input type="radio" name="p1" value="2"> More than half the days</label>
+        <label><input type="radio" name="p1" value="3"> Nearly every day</label>
+      </div>
+      <div class="question">
+        <p>2. Do you avoid places, people, or activities that remind you of the trauma?</p>
+        <label><input type="radio" name="p2" value="0" required> Not at all</label>
+        <label><input type="radio" name="p2" value="1"> Several days</label>
+        <label><input type="radio" name="p2" value="2"> More than half the days</label>
+        <label><input type="radio" name="p2" value="3"> Nearly every day</label>
+      </div>
+      <div class="question">
+        <p>3. Do you feel very alert or easily startled?</p>
+        <label><input type="radio" name="p3" value="0" required> Not at all</label>
+        <label><input type="radio" name="p3" value="1"> Several days</label>
+        <label><input type="radio" name="p3" value="2"> More than half the days</label>
+        <label><input type="radio" name="p3" value="3"> Nearly every day</label>
+      </div>
+      <div class="question">
+        <p>4. Trouble sleeping or feeling restless?</p>
+        <label><input type="radio" name="p4" value="0" required> Not at all</label>
+        <label><input type="radio" name="p4" value="1"> Several days</label>
+        <label><input type="radio" name="p4" value="2"> More than half the days</label>
+        <label><input type="radio" name="p4" value="3"> Nearly every day</label>
+      </div>
+    </div>
+
+    <!-- OCD Questions -->
+    <div class="questionnaire" id="ocd-questions" style="display:none;">
+      <h2>OCD Severity Questionnaire</h2>
+      <div class="question">
+        <p>1. How often do you have unwanted repetitive thoughts (obsessions)?</p>
+        <label><input type="radio" name="o1" value="0" required> Not at all</label>
+        <label><input type="radio" name="o1" value="1"> Occasionally</label>
+        <label><input type="radio" name="o1" value="2"> Often</label>
+        <label><input type="radio" name="o1" value="3"> Nearly every day</label>
+      </div>
+      <div class="question">
+        <p>2. How often do you feel the need to repeat certain actions or rituals?</p>
+        <label><input type="radio" name="o2" value="0" required> Not at all</label>
+        <label><input type="radio" name="o2" value="1"> Occasionally</label>
+        <label><input type="radio" name="o2" value="2"> Often</label>
+        <label><input type="radio" name="o2" value="3"> Nearly every day</label>
+      </div>
+      <div class="question">
+        <p>3. Do these thoughts or rituals interfere with your daily life?</p>
+        <label><input type="radio" name="o3" value="0" required> Not at all</label>
+        <label><input type="radio" name="o3" value="1"> Occasionally</label>
+        <label><input type="radio" name="o3" value="2"> Often</label>
+        <label><input type="radio" name="o3" value="3"> Nearly every day</label>
+      </div>
+    </div>
+
+    <button type="button" onclick="calculateSeverity()">Submit</button>
+  </form>
+
+  <div id="severity-result" class="result hidden"></div>
+
+  <script>
+    const disorderSelect = document.getElementById('disorder-select');
+    const severityForm = document.getElementById('severity-form');
+    const resultDiv = document.getElementById('severity-result');
+
+    function showQuestionnaire() {
+      resultDiv.classList.add('hidden');
+      if (!disorderSelect.value) {
+        severityForm.classList.add('hidden');
+        hideAllQuestionnaires();
+        return;
+      }
+      severityForm.classList.remove('hidden');
+      hideAllQuestionnaires();
+      const qId = disorderSelect.value + '-questions';
+      document.getElementById(qId).style.display = 'block';
+    }
+
+    function hideAllQuestionnaires() {
+      document.querySelectorAll('.questionnaire').forEach(div => {
+        div.style.display = 'none';
+      });
+    }
+
+    function calculateSeverity() {
+      resultDiv.classList.add('hidden');
+      const disorder = disorderSelect.value;
+      if (!disorder) {
+        alert('Please select a disorder.');
+        return;
+      }
+
+      let score = 0;
+      let maxScore = 0;
+
+      // Collect all selected radios for the disorder questionnaire
+      const radios = document.querySelectorAll(`#${disorder}-questions input[type=radio]:checked`);
+      if (radios.length === 0) {
+        alert('Please answer all questions.');
+        return;
+      }
+      radios.forEach(radio => {
+        score += parseInt(radio.value);
+      });
+
+      maxScore = radios.length * 3;
+
+      let severity = '';
+      const percent = (score / maxScore) * 100;
+
+      if (percent < 20) severity = 'Mild';
+      else if (percent < 50) severity = 'Moderate';
+      else severity = 'Severe';
+
+      let advice = '';
+      if (severity === 'Mild') {
+        advice = 'You may benefit from self-help resources and lifestyle changes. Consider monitoring your symptoms regularly.';
+      } else if (severity === 'Moderate') {
+        advice = 'It is recommended to consult a mental health professional. Support from friends and family can also help.';
+      } else {
+        advice = 'Please seek professional help as soon as possible. If you have thoughts of self-harm or suicide, contact emergency services immediately.';
+      }
+
+      resultDiv.innerHTML = `
+        <h2>Severity Level: ${severity}</h2>
+        <p>Your score: ${score} out of ${maxScore} (${percent.toFixed(1)}%)</p>
+        <p>${advice}</p>
+      `;
+      resultDiv.classList.remove('hidden');
+      // Scroll to result
+      resultDiv.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Choose Option</title>
+  <style>
+    /* Background color animation */
+    @keyframes bgColorCycle {
+      0%   { background-color: #0d1b2a; }
+      20%  { background-color: #1b263b; }
+      40%  { background-color: #415a77; }
+      60%  { background-color: #778da9; }
+      80%  { background-color: #e0e1dd; }
+      100% { background-color: #0d1b2a; }
+    }
+
+    /* Container animation */
+    @keyframes fadeSlideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* General styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #333;
+      text-align: center;
+      animation: bgColorCycle 25s infinite alternate;
+    }
+
+    .container {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+      animation: fadeSlideUp 1s ease forwards;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 10px;
+      color: #e0e1dd;
+      text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 30px;
+      color: #e0e1dd;
+      text-shadow: 0 0 4px rgba(0,0,0,0.3);
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: #e0e1dd;
+      border-radius: 12px;
+      padding: 30px;
+      width: 260px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease, border 0.2s, background 0.2s, color 0.2s;
+      color: #0d1b2a;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      border: 2px solid #415a77;
+      background: #778da9;
+      color: #e0e1dd;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .card h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: inherit;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>How can we help you today?</h1>
+    <p>Please choose an option:</p>
+
+    <div class="cards">
+      <div class="card" onclick="chooseOption('assessment.html')">
+        <h2>📝 Assessment</h2>
+        <p>Take a self-test to better understand your condition.</p>
+      </div>
+
+      <div class="card" onclick="chooseOption('../ConsultationFor/index.html')">
+        <h2>💬 Consultation</h2>
+        <p>Talk with a professional to get personal advice.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function chooseOption(url) {
+      // Optional debug: alert("Navigating to: " + url);
+      window.location.href = url;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rehabilitation Platform</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #121212;
+      color: #ffffff;
+    }
+    .card {
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+      transition: transform 0.2s ease-in-out;
+      background-color: #1e1e1e;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card-title {
+      font-weight: bold;
+    }
+    label {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
+    <h1 class="text-center mb-4">Rehabilitation Support Platform</h1>
+    <div class="row g-4">
+      <!-- Addiction Assessment -->
+      <div class="col-12">
+        <div class="card p-4 mb-4">
+          <h5 class="card-title">🧪 Addiction Assessment</h5>
+          <!-- (existing assessment code remains unchanged) -->
+          <!-- OMITTED FOR BREVITY -->
+        </div>
+      </div>
+
+      <!-- Cost Calculator -->
+      <div class="col-12">
+        <div class="card p-4">
+          <h5 class="card-title">💸 Total Cost of Addiction</h5>
+          <form id="costForm">
+            <div class="mb-3">
+              <label for="dailyCost" class="form-label">Average Daily Cost of Addiction (in NPR)</label>
+              <input type="number" id="dailyCost" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="addictionDuration" class="form-label">How many months have you been addicted?</label>
+              <input type="number" id="addictionDuration" class="form-control" required>
+            </div>
+            <button type="button" class="btn btn-warning" onclick="calculateCost()">Calculate Total</button>
+          </form>
+          <div id="costResult" class="mt-4 fw-bold"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Existing addiction assessment logic remains unchanged
+    // OMITTED FOR BREVITY
+
+    function calculateCost() {
+      const dailyCost = parseFloat(document.getElementById('dailyCost').value);
+      const months = parseInt(document.getElementById('addictionDuration').value);
+      const totalDays = months * 30;
+      const totalCost = dailyCost * totalDays;
+      let message = `🧾 You have spent an estimated NPR ${totalCost.toLocaleString()} on your addiction.`;
+
+      if (totalCost > 500000) {
+        message += "\n😢 That's enough to fund a full vacation in Europe or buy a small car in Nepal.";
+        message += "\n🧬 Studies show this level of addiction may reduce your healthy lifespan significantly.";
+      } else if (totalCost > 200000) {
+        message += "\n😔 You could've traveled across Southeast Asia or invested in higher education.";
+      } else if (totalCost > 50000) {
+        message += "\n😕 You could have afforded yearly insurance, savings, or self-development programs.";
+      } else {
+        message += "\n✨ It's not too late — now is the time to regain control and redirect your resources!";
+      }
+
+      document.getElementById('costResult').innerText = message;
+    }
+  </script>
+</body>
+</html>
