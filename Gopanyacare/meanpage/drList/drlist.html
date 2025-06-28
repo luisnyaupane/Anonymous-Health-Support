@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Doctor Profiles</title>
+  <style>
+    body {
+      background-color: #121212;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+      color: #fff;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .doctor-card {
+      background: #1f1f1f;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      width: 260px;
+      text-align: center;
+    }
+
+    .doctor-photo {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #00c853;
+      margin-bottom: 15px;
+    }
+
+    .doctor-name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .availability {
+      font-size: 14px;
+      margin: 10px 0;
+    }
+
+    .online {
+      color: #00c853;
+    }
+
+    .offline {
+      color: #ff5252;
+    }
+
+    .btn {
+      background-color: #00bfa5;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #009e88;
+    }
+
+    .confirmation {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #90ee90;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🩺 Available Doctors</h1>
+
+  <div class="card-container">
+
+    <div class="doctor-card">
+      <img class="doctor-photo" src="https://randomuser.me/api/portraits/women/65.jpg" alt="Doctor 1">
+      <div class="doctor-name">Dr. Priya Sharma</div>
+      <div class="availability">Status: <span class="online">Online</span></div>
+      <button class="btn" onclick="book(this)">Take Appointment</button>
+      <div class="confirmation">✅ Appointment Requested!</div>
+    </div>
+
+    <div class="doctor-card">
+      <img class="doctor-photo" src="https://randomuser.me/api/portraits/men/75.jpg" alt="Doctor 2">
+      <div class="doctor-name">Dr. Suman Thapa</div>
+      <div class="availability">Status: <span class="offline">Offline</span></div>
+      <button class="btn" onclick="book(this)">Take Appointment</button>
+      <div class="confirmation">✅ Appointment Requested!</div>
+    </div>
+
+    <div class="doctor-card">
+      <img class="doctor-photo" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Doctor 3">
+      <div class="doctor-name">Dr. Anuja Giri</div>
+      <div class="availability">Status: <span class="online">Online</span></div>
+      <button class="btn" onclick="book(this)">Take Appointment</button>
+      <div class="confirmation">✅ Appointment Requested!</div>
+    </div>
+
+    <div class="doctor-card">
+      <img class="doctor-photo" src="https://randomuser.me/api/portraits/men/52.jpg" alt="Doctor 4">
+      <div class="doctor-name">Dr. Rabin Joshi</div>
+      <div class="availability">Status: <span class="offline">Offline</span></div>
+      <button class="btn" onclick="book(this)">Take Appointment</button>
+      <div class="confirmation">✅ Appointment Requested!</div>
+    </div>
+
+  </div>
+
+  <script>
+    function book(button) {
+      const confirmation = button.nextElementSibling;
+      confirmation.style.display = "block";
+      setTimeout(() => confirmation.style.display = "none", 3000);
+    }
+  </script>
+
+</body>
+</html>

@@ -18,3 +18,9 @@ function goToMythPage() {
 function goToGovermentPage() {
   window.location.href = "./reproductiveGoverment/reproductiveGoverment.html";
 }
+function goToLgbtqPage() {
+  window.location.href = "./reproductiveLgbtq/reproductiveLgbtq.html";
+}
+function goToWomePage() {
+  window.location.href = "./reproductiveWome/reproductiveWome.html";
+}
