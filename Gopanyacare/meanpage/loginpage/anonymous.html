@@ -193,6 +193,7 @@
       } else {
         loginMsg.textContent = `Welcome back! Logged in with: ${input}`;
         loginMsg.classList.remove("error");
+        window.location.href = "../homepage/home.html";
       }
       loginMsg.style.display = "block";
       loginMsg.scrollIntoView({ behavior: "smooth" });
